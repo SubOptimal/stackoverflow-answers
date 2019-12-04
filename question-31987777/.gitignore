@@ -1,4 +1,5 @@
 jdk8/
 jre8.patched/
 target/
+jdk8
 *.log
