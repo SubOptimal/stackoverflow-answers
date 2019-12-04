@@ -90,6 +90,17 @@ In the log it's also printed that the patched class was used
 # Warmup Iteration   1: patched class java.lang.ConditionalSpecialCasing
 ```
 
+### interesting
+
+Running the benchmarks with JDK 13 increases the performance between about 45% and 60%.
+
+```
+Benchmark                        Mode  Cnt      Score     Error   Units
+MyBenchmark.upperCaseEN         thrpt   25  15488.625 ± 535.825  ops/ms
+MyBenchmark.upperCasePatchedTR  thrpt   25  12624.747 ± 531.672  ops/ms
+MyBenchmark.upperCaseTR         thrpt   25   1464.932 ±  43.479  ops/ms
+```
+
 ### what's not done
 
 There was no kind of investigation if replacing the `Hashtable` in class `java.lang.ConditionalSpecialCasing` by a `HashMap` might have some unexpected side effects in a multi-threaded environment.
